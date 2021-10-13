@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://sh-cdb-p9ql3dvk.sql.tencentcdb.com:59961/b2b
+    username: root
+    password: u20701109
+
+

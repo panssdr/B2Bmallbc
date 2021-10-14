@@ -37,7 +37,9 @@ public class Demand implements Serializable {
 
     private String unit;
 
+    private String priceAndAmount; //期望价格和数量比
     private String type;  //类型
+
 
     private Integer categoryID1;
 

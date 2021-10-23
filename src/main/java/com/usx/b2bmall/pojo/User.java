@@ -10,5 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class User {
-    String name;
+    String CoTelephone;
+    String PassWord;
+
 }

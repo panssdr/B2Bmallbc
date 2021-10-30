@@ -52,10 +52,30 @@ public class CustomerController {
     public List<CustomerRigster> findAllCustomer(){
            return customerMapper.findAllCustomer();
     }
+
+    @GetMapping("/customerPass/{id}")
+    public void customerPass(@PathVariable(name="id")Integer id){
+       CustomerRigster customerRigster = customerMapper.findById(id);
+       if(customerRigster.getStatus().equals("未审核"))
+       {
+           customerMapper.customerPass(id);
+       }
+
+    }
+
+    @GetMapping("/customerFail/{id}")
+    public void customerFail(@PathVariable(name="id")Integer id){
+        CustomerRigster customerRigster = customerMapper.findById(id);
+        if(customerRigster.getStatus().equals("未审核"))
+        {
+            customerMapper.customerFail(id);
+        }
+    }
 //    @PostMapping(value = "/register")
 //    public void registerCustomer(HttpServletRequest request) {
 //        System.out.println(request.getParameter("CoTelephone"));
 //        System.out.println(request.getParameter("PassWord"));
 //    }
+
 }
 

@@ -26,4 +26,17 @@ public interface SupplyMapper extends BaseMapper<Supply> {
             "                         (SELECT merchant.`CoName` FROM merchant where  supply.MerchantID=merchant.ID )as supplyCompany,\n" +
             "                       (SELECT category.`Name` FROM category where supply.CategoryID1=category.ID )as type from supply")
     List<Supply> getAll();
+
+    @Select("SELECT ID id,GoodsName goodsName,Specifications specifications,\n" +
+            "                      CreateDate createDate,\n" +
+            "                       CONCAT_WS(\"/\",Price,Unit) as priceAndAmount,\n" +
+            "                        CONCAT_WS(\"/\",MOQ,Unit) as moq,\n" +
+            "                        isSpotGoods isSpotGoods,\n" +
+            "                         (SELECT merchant.`CoName` FROM merchant where  supply.MerchantID=merchant.ID )as supplyCompany,\n" +
+            "                       (SELECT category.`Name` FROM category where supply.CategoryID1=category.ID )as type from supply limit 5" )
+    List<Supply> getHomeSupply();
+
+
+
+
 }

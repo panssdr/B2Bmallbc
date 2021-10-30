@@ -33,5 +33,13 @@ public class DemandController {
     public List<Demand> demandAll(){
         return demandMapper.getAll();
     }
+
+
+    @GetMapping("/homeDemand")
+    public List<Demand> getHomeDemand(){
+        return demandMapper.getHomeDemand();
+    }
+
+
 }
 

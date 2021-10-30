@@ -32,5 +32,8 @@ public class SupplyController {
         return supplyMapper.getAll();
     }
 
+    @GetMapping("/homeSupply")
+    public List<Supply> getHomeSupply() { return supplyMapper.getHomeSupply();}
+
 }
 

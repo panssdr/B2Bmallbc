@@ -48,6 +48,17 @@ public class CustomerController {
        customerMapper.registerCustomer(customer);
     }
 
+    @PostMapping("/registerByAdministrator")
+    @CrossOrigin
+    public void registerCustomerByAdministrator(@RequestBody CustomerRigster customerRigster) {
+        customerRigster.setRegisterDate(LocalDateTime.now());
+        customerRigster.setStatus("0");
+
+        System.out.println(customerRigster);
+        customerMapper.registerCustomerByAdministrator(customerRigster);
+    }
+
+
     @GetMapping("/findAll")
     public List<CustomerRigster> findAllCustomer(){
            return customerMapper.findAllCustomer();
@@ -71,11 +82,6 @@ public class CustomerController {
             customerMapper.customerFail(id);
         }
     }
-//    @PostMapping(value = "/register")
-//    public void registerCustomer(HttpServletRequest request) {
-//        System.out.println(request.getParameter("CoTelephone"));
-//        System.out.println(request.getParameter("PassWord"));
-//    }
 
 }
 

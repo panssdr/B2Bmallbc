@@ -49,4 +49,9 @@ public interface CustomerMapper extends BaseMapper<Customer> {
 
     @Update("update customer set Status=2 where ID=#{id} ")
     void customerFail(Integer id);
+
+    @Insert("INSERT INTO customer(PassWord,AccountCode,CoName,CoAddress,CoTelephone,Name,Phone,Email,Telephone,QQ,WechatNum,ContactAddress,RegisterDate,IsIndividual,Status,RegisterType)" +
+            " values(#{passWord},#{type},#{priceAndAmount},#{amount},#{coTelephone},#{specifications},#{type},#{email},#{telephone},#{qq},#{wechatNum},#{contactAddress}," +
+            "#{registerDate},#{isIndividual},#{status},#{registerType})")
+    public int registerCustomerByAdministrator(CustomerRigster customerRigster);
 }

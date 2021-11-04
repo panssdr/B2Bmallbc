@@ -1,5 +1,7 @@
 package com.usx.b2bmall.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -21,10 +23,11 @@ public class Demandintent implements Serializable {
 
     private String name;
 
-    private String contactName;
+    private String contactName; //联系人姓名
 
     private String demandDescript;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private LocalDateTime createDate;
 
     private String ipAddress;
@@ -45,6 +48,7 @@ public class Demandintent implements Serializable {
 
     private Integer status;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private LocalDateTime lockDate;
 
 

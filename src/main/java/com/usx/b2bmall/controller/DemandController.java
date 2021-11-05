@@ -4,13 +4,11 @@ package com.usx.b2bmall.controller;
 import com.usx.b2bmall.mapper.DemandMapper;
 import com.usx.b2bmall.pojo.Demand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -40,6 +38,14 @@ public class DemandController {
         return demandMapper.getHomeDemand();
     }
 
+
+    @PostMapping("/createTableByCustomerService")
+    public void createTableByCustomerService(@RequestBody Demand demand){
+       demand.setCreateDate(LocalDateTime.now());
+       demand.setStaffID(100);
+       demand.setStatus(1);
+       demandMapper.createTableByCustomerService(demand);
+    }
 
 }
 

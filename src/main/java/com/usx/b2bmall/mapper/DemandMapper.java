@@ -5,6 +5,7 @@ import com.usx.b2bmall.pojo.Demand;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -40,4 +41,11 @@ public interface DemandMapper extends BaseMapper<Demand> {
             "#{amount},#{unit},#{categoryID1},#{usePurpose},#{createDate},#{staffID},#{width}," +
             "#{ingredient},#{status},#{customerID})")
     public Boolean createTableByCustomerService(Demand demand);
+
+
+    @Select("select * from demand order by ID desc limit 4;")
+    List<Demand> getDeMan();
+
+    @Update("update demand set Status=2 where ID=#{id} ")
+    public boolean sendInquiry(Integer id);
 }

@@ -82,5 +82,17 @@ public class DemandsupplyController {
     public List<Demandsupply> findAll(){
       return demandsupplyMapper.findAll();
     }
+
+    //获取指定的报价审核信息
+    @GetMapping("/findById/{id}")
+    public Demandsupply findById(@PathVariable("id")Integer id){
+        return demandsupplyMapper.findById(id);
+    }
+
+    //技术员进行审核
+    @PostMapping("/sendAudit")
+    public void sendAudit(@RequestBody Demandsupply demandsupply){
+        demandsupplyMapper.sendAudit(demandsupply);
+    }
 }
 

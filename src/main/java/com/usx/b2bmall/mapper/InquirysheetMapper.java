@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -45,4 +46,12 @@ public interface InquirysheetMapper extends BaseMapper<Inquirysheet> {
             "d.Descript descript,i.AnalysisDescript analysisDescript from inquirysheet i LEFT JOIN " +
             "demand d on i.DemandID = d.ID WHERE i.ID=#{id}")
     InquirysheetDemand findInquirysheetDemandById(Integer id);
+
+
+
+
+    //获取指导价格
+    @Select("select GuidePrice,AnalysisDescript from inquirysheet where DemandID=#{id}")
+    InquirysheetDemand findDirectPriceById(Integer id);
+
 }

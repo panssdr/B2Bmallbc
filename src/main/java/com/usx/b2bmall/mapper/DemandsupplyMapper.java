@@ -37,5 +37,11 @@ public interface DemandsupplyMapper extends BaseMapper<Demandsupply> {
 
 
     @Select("select * from demandsupply")
-    List<Demandsupply> findAll();
+     List<Demandsupply> findAll();
+
+    @Select("select * from demandsupply where Id=#{id}")
+    Demandsupply findById(Integer id);
+
+    @Update("update demandsupply set Status=#{status},AuditDescript=#{auditDescript}")
+    void sendAudit(Demandsupply demandsupply);
 }

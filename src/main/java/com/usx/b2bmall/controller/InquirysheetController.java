@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -52,6 +53,12 @@ public class InquirysheetController {
         inquirysheetDemand= inquirysheetMapper.findInquirysheetDemandById(id);
 
         return inquirysheetDemand;
+    }
+
+
+    @GetMapping("/findDirectPriceById/{id}")
+    public InquirysheetDemand findDirectPriceById(@PathVariable("id") Integer id){
+        return inquirysheetMapper.findDirectPriceById(id);
     }
 }
 

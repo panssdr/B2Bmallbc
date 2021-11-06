@@ -1,5 +1,6 @@
 package com.usx.b2bmall.mapper;
 
+import com.usx.b2bmall.pojo.Demandsupply;
 import com.usx.b2bmall.pojo.Supply;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

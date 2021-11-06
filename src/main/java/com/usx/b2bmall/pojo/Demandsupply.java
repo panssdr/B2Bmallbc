@@ -1,5 +1,11 @@
 package com.usx.b2bmall.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,13 +18,25 @@ import java.time.LocalDateTime;
  * @author Panshenshen
  * @since 2021-10-13
  */
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Demandsupply implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer id;
 
+    private String goodsName; //商品名称
+    private BigDecimal price; //价格
+    private BigDecimal amount;//数量
+    private Integer categoryID1;//需求
+    private String category; //需求类别
+    private String specifications; //需求规格
+    private String descript; //商品描述
     private Integer inquirySheetID;
+    private String usePurpose;//用途
 
     private Integer demandID;
 
@@ -35,145 +53,14 @@ public class Demandsupply implements Serializable {
     private String auditDescript;
 
     private Integer status;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private LocalDateTime createDate;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private LocalDateTime quotedDate;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private LocalDateTime auditDate;
 
     private Integer isSelected;
 
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getInquirySheetID() {
-        return inquirySheetID;
-    }
-
-    public void setInquirySheetID(Integer inquirySheetID) {
-        this.inquirySheetID = inquirySheetID;
-    }
-
-    public Integer getDemandID() {
-        return demandID;
-    }
-
-    public void setDemandID(Integer demandID) {
-        this.demandID = demandID;
-    }
-
-    public Integer getMerchantID() {
-        return merchantID;
-    }
-
-    public void setMerchantID(Integer merchantID) {
-        this.merchantID = merchantID;
-    }
-
-    public Integer getSupplyID() {
-        return supplyID;
-    }
-
-    public void setSupplyID(Integer supplyID) {
-        this.supplyID = supplyID;
-    }
-
-    public BigDecimal getQuotedPrice() {
-        return quotedPrice;
-    }
-
-    public void setQuotedPrice(BigDecimal quotedPrice) {
-        this.quotedPrice = quotedPrice;
-    }
-
-    public String getQuotedDescript() {
-        return quotedDescript;
-    }
-
-    public void setQuotedDescript(String quotedDescript) {
-        this.quotedDescript = quotedDescript;
-    }
-
-    public Integer getTechnicianID() {
-        return technicianID;
-    }
-
-    public void setTechnicianID(Integer technicianID) {
-        this.technicianID = technicianID;
-    }
-
-    public String getAuditDescript() {
-        return auditDescript;
-    }
-
-    public void setAuditDescript(String auditDescript) {
-        this.auditDescript = auditDescript;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
-    }
-
-    public LocalDateTime getQuotedDate() {
-        return quotedDate;
-    }
-
-    public void setQuotedDate(LocalDateTime quotedDate) {
-        this.quotedDate = quotedDate;
-    }
-
-    public LocalDateTime getAuditDate() {
-        return auditDate;
-    }
-
-    public void setAuditDate(LocalDateTime auditDate) {
-        this.auditDate = auditDate;
-    }
-
-    public Integer getIsSelected() {
-        return isSelected;
-    }
-
-    public void setIsSelected(Integer isSelected) {
-        this.isSelected = isSelected;
-    }
-
-    @Override
-    public String toString() {
-        return "Demandsupply{" +
-        "id=" + id +
-        ", inquirySheetID=" + inquirySheetID +
-        ", demandID=" + demandID +
-        ", merchantID=" + merchantID +
-        ", supplyID=" + supplyID +
-        ", quotedPrice=" + quotedPrice +
-        ", quotedDescript=" + quotedDescript +
-        ", technicianID=" + technicianID +
-        ", auditDescript=" + auditDescript +
-        ", status=" + status +
-        ", createDate=" + createDate +
-        ", quotedDate=" + quotedDate +
-        ", auditDate=" + auditDate +
-        ", isSelected=" + isSelected +
-        "}";
-    }
 }

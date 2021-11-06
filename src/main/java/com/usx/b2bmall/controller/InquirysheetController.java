@@ -3,6 +3,7 @@ package com.usx.b2bmall.controller;
 
 import com.usx.b2bmall.mapper.InquirysheetMapper;
 import com.usx.b2bmall.pojo.Inquirysheet;
+import com.usx.b2bmall.pojo.InquirysheetDemand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +44,14 @@ public class InquirysheetController {
          inquirysheet.setAnalysisDate(LocalDateTime.now());
 
          inquirysheetMapper.sendAnalysisDescript(inquirysheet);
+    }
+    
+    @GetMapping("/findInquirysheetDemandById/{id}")
+    public InquirysheetDemand findInquirysheetDemandById(@PathVariable("id")Integer id){
+        InquirysheetDemand inquirysheetDemand = new InquirysheetDemand();
+        inquirysheetDemand= inquirysheetMapper.findInquirysheetDemandById(id);
+
+        return inquirysheetDemand;
     }
 }
 

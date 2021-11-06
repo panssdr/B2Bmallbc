@@ -26,7 +26,7 @@ public class Inquirysheet implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;
     private Integer demandID;
-    private BigDecimal guidePrice;
+    private BigDecimal guidePrice; //指导价格
     private Integer customerID; //顾客ID
     private Integer staffID;  //客服ID
     private String analysisDescript;

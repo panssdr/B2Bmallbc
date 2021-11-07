@@ -42,6 +42,9 @@ public interface DemandsupplyMapper extends BaseMapper<Demandsupply> {
     @Select("select * from demandsupply where Id=#{id}")
     Demandsupply findById(Integer id);
 
-    @Update("update demandsupply set Status=#{status},AuditDescript=#{auditDescript}")
+    @Update("update demandsupply set Status=#{status},AuditDescript=#{auditDescript} where ID=#{id}")
     void sendAudit(Demandsupply demandsupply);
+
+    @Update("update inquirysheet set QuotedPrice=#{quotedPrice},MerchantID=#{merchantID},TechnicianID=#{technicianID},QuotedDate=#{quotedDate} where ID=#{inquirySheetID}")
+    void secondAudit(Demandsupply demandsupply);
 }

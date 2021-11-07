@@ -48,4 +48,5 @@ public interface DemandMapper extends BaseMapper<Demand> {
 
     @Update("update demand set Status=2 where ID=#{id} ")
     public boolean sendInquiry(Integer id);
+
 }

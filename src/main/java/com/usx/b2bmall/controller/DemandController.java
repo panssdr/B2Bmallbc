@@ -39,6 +39,11 @@ public class DemandController {
         return demandMapper.getAll();
     }
 
+    //根据ID的需求
+    @GetMapping("/byId/{id}")
+    public Demand byId(@PathVariable("id") Integer id){
+        return demandMapper.selectById(id);
+    }
 
     //首页的需求
     @GetMapping("/homeDemand")

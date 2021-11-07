@@ -94,5 +94,13 @@ public class DemandsupplyController {
     public void sendAudit(@RequestBody Demandsupply demandsupply){
         demandsupplyMapper.sendAudit(demandsupply);
     }
+
+    //领导进行审核
+    @PostMapping("/secondAudit")
+    public void secondAudit(@RequestBody Demandsupply demandsupply){
+        demandsupply.setQuotedDate(LocalDateTime.now());
+        demandsupplyMapper.sendAudit(demandsupply);
+        demandsupplyMapper.secondAudit(demandsupply);
+    }
 }
 
